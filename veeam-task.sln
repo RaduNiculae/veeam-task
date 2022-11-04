@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "veeam-task", "veeam-task.csproj", "{5387C5DE-4B26-4DE5-92EE-E93EC2570866}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "veeam-test", "..\veeam-test\veeam-test.csproj", "{6751F6B5-C0E7-4C31-864A-132307E4CCDA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "veeam-taskTests", "..\veeam-taskTests\veeam-taskTests.csproj", "{1496E257-3AD8-4B1F-BCDB-6F20604A3F57}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{5387C5DE-4B26-4DE5-92EE-E93EC2570866}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5387C5DE-4B26-4DE5-92EE-E93EC2570866}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5387C5DE-4B26-4DE5-92EE-E93EC2570866}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6751F6B5-C0E7-4C31-864A-132307E4CCDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6751F6B5-C0E7-4C31-864A-132307E4CCDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6751F6B5-C0E7-4C31-864A-132307E4CCDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6751F6B5-C0E7-4C31-864A-132307E4CCDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1496E257-3AD8-4B1F-BCDB-6F20604A3F57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1496E257-3AD8-4B1F-BCDB-6F20604A3F57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1496E257-3AD8-4B1F-BCDB-6F20604A3F57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1496E257-3AD8-4B1F-BCDB-6F20604A3F57}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

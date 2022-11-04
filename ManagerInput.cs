@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace veeam_task
 {
-    class ManagerInput
+    public class ManagerInput
     {
         private string processName;
         private int maxLifetime;
@@ -20,6 +20,21 @@ namespace veeam_task
             this.processName = processName;
             this.maxLifetime = maxLifetime;
             this.monitorFreq = monitorFreq;
+        }
+
+        public bool Equals(ManagerInput mInput)
+        {
+            if (mInput is null)
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(this, mInput))
+            {
+                return true;
+            }
+
+            return (processName == mInput.ProcessName) && (maxLifetime == mInput.MaxLifetime) && (monitorFreq == mInput.MonitorFreq);
         }
     }
 }
