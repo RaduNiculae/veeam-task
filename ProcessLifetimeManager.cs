@@ -10,11 +10,10 @@ using System.Timers;
 
 namespace veeam_task
 {
-    class ProcessLifetimeManager
+    public class ProcessLifetimeManager
     {
         private readonly ManagerInput mInput;
         private readonly ILogger<ProcessLifetimeManager> _logger;
-
         public ProcessLifetimeManager(ManagerInput mInput, ILogger<ProcessLifetimeManager> logger)
         {
             this.mInput = mInput;
@@ -23,22 +22,8 @@ namespace veeam_task
 
         public void manageLifetime()
         {
-            int interval;
-            try
-            {
-                checked
-                {
-                    interval = mInput.MonitorFreq * 60 * 1000;
-                }
-            }
-            catch (OverflowException ex)
-            {
-                _logger.LogError(ex.Message);
-                return;
-            }
-
-            // No need for exception checking. Previous checks for posive and overflow.
-            Timer monitorTimer = new Timer(interval);
+            // No need for exception checking. Previous checks for strict posive and overflow.
+            Timer monitorTimer = new Timer(mInput.MonitorFreq);
             monitorTimer.Elapsed += checkProcessLifetime;
             monitorTimer.AutoReset = true;
             monitorTimer.Enabled = true;
