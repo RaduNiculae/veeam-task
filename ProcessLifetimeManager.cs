@@ -48,12 +48,6 @@ namespace veeam_task
                     continue;
                 }
 
-                if (lifetime.Minutes < 0)
-                {
-                    _logger.LogError("Lifetime has negative value!");
-                    continue;
-                }
-
                 if (lifetime.TotalMinutes > mInput.MaxLifetime)
                 {
                     try
@@ -68,6 +62,23 @@ namespace veeam_task
                     }
                 }
             }
+        }
+
+        public bool Equals(ProcessLifetimeManager manager)
+        {
+            if (manager is null)
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(this, manager))
+            {
+                return true;
+            }
+
+            return (mInput.ProcessName == manager.mInput.ProcessName) &&
+                   (mInput.MaxLifetime == manager.mInput.MaxLifetime) &&
+                   (mInput.MonitorFreq == manager.mInput.MonitorFreq);
         }
     }
 }

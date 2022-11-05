@@ -13,14 +13,16 @@ namespace veeam_task
 {
     class Program
     {
+        private static int KEY_CHECK_MILLIS = 300;
+
         public static void PressQToExit(int exitCode)
         {
-            //TODO: check the exit code
-            Console.WriteLine("Press Q to exit...");
+            Console.WriteLine("Press the Q key to exit.");
             do
             {
                 while (!Console.KeyAvailable)
                 {
+                    Thread.Sleep(KEY_CHECK_MILLIS);
                 }
             } while (Console.ReadKey(true).Key != ConsoleKey.Q);
             System.Environment.Exit(exitCode);
@@ -28,18 +30,19 @@ namespace veeam_task
 
         static void Main(string[] args)
         {
+            Console.WriteLine("Program has started...");
+
             var loggerFactory = LoggerFactory.Create(builder =>
                 builder.SetMinimumLevel(LogLevel.Debug)
                        .AddConsole()
                        .AddDebug()
             );
-            var plogger = loggerFactory.CreateLogger<Program>();
+            var managerInputLogger = loggerFactory.CreateLogger<ManagerInput>();
 
-            InputParser parser = new InputParser(loggerFactory.CreateLogger<InputParser>());
             ManagerInput mInput;
             try
             {
-                mInput = parser.parseInput(args);
+                mInput = ManagerInput.parseInput(args, managerInputLogger);
             }
             catch
             {
@@ -51,6 +54,7 @@ namespace veeam_task
                 mInput,
                 loggerFactory.CreateLogger<ProcessLifetimeManager>()
             );
+
             manager.manageLifetime();
             PressQToExit(1);
         }
