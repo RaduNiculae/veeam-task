@@ -120,7 +120,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InputParser.cs" />
     <Compile Include="ManagerInput.cs" />
     <Compile Include="ProcessLifetimeManager.cs" />
     <Compile Include="Program.cs" />
